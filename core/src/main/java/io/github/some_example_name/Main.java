@@ -13,8 +13,9 @@ import Screen.GameScreen;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class Main extends Game {
-    public SpriteBatch batch;
-    public Texture image;
+    public static SpriteBatch batch;
+    public static Texture image;
+    public static int width, height;
 
 
     @Override
@@ -26,22 +27,14 @@ public class Main extends Game {
         // saxi mej grel
         setScreen(new GameScreen(this));
 
+        width = Gdx.graphics.getWidth();
+        height = Gdx.graphics.getHeight();
+
     }
 
 
 
-//    @Override
-//    public void render() {
-//        Gdx.gl.glClearColor(1,0,0,1);
-//        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-//
-//        ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
-//        batch.begin();
-//        batch.draw(image, 100, 100 );
-//        batch.end();
-//
-//
-//    }
+
 
     @Override
     public void dispose() {
