@@ -8,30 +8,41 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
+
+
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class Main extends Game {
+public class Main extends ApplicationAdapter {
+    //    private float x;
+    //    private float y;
     public SpriteBatch batch;
-    private Texture image;
+    public Texture image;
+
 
     @Override
     public void create() {
         batch = new SpriteBatch();
-        setScreen(new PlayScreen(this));
-//        image = new Texture("Player.png");
+        image = new Texture("Player.png");
 
-
+        batch = new SpriteBatch();
+        // setScreen(new PlayScreen(this));
     }
+
+
 
     @Override
     public void render() {
-     super.render();
 
-//        Gdx.gl.glClearColor(0,0,0,1);
-//        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+
+//        x+=1;
+//        y+=1;
+
+        Gdx.gl.glClearColor(0,0,0,1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         batch.begin();
-        batch.draw(image, 100, 100);
+        batch.draw(image, 100, 100 );
         batch.end();
     }
 
