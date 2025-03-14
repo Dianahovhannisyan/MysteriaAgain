@@ -35,7 +35,7 @@ public class Joystick {
 
     public void update (float x, float y, boolean isDownTouch, int pointer){
            Point2D touch = new Point2D(x,y);
-           if(CircleGranica.isContains(touch) && isDownTouch && pointer == -1){
+           if(CircleGranica.isContains(touch) && isDownTouch && this.pointer == -1){
                this.pointer=pointer;
            }
 
@@ -66,5 +66,9 @@ public class Joystick {
         direction.setPoint(0,0);
         pointer = -1;
 
+    }
+
+    public Point2D getDir (){
+        return direction;
     }
 }

@@ -11,11 +11,11 @@ public abstract class Actor extends GraphicsObj {
     public Point2D position;
     public float Speed;
     public float R;
-    public  Circle granic;
+    public  Circle granica;
     public Point2D direction;
 
 
-    public Actor(Texture img, Point2D position, Circle granica, float Speed, float R) {
+    public Actor(Texture img, Point2D position, float Speed, float R) {
         super(img);
         this.position = new Point2D(position) ;
         this.Speed = Speed;
@@ -24,4 +24,9 @@ public abstract class Actor extends GraphicsObj {
         direction = new Point2D(0,0);
 
     }
+
+    public void setDirection(Point2D dir){
+        direction=dir;
+    }
+
 }

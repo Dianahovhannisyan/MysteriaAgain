@@ -13,8 +13,8 @@ public class Player extends Actor {
     private int Score;
     private float health;
 
-    public Player(Texture img, Point2D position, Circle granica, float Speed, float R, float health) {
-        super(img, position, granica, Speed, R);
+    public Player(Texture img, Point2D position, /*Circle granica,*/ float Speed, float R, float health) {
+        super(img, position, /*granica*/ Speed, R);
         this.health = health;
     }
 

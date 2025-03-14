@@ -16,10 +16,17 @@ public class Main extends Game {
     public static SpriteBatch batch;
     public static Texture image;
     public static int width, height;
+    public static Texture circle, actor;
+
 
 
     @Override
     public void create() {
+
+        circle = new Texture("Circle.jpg");
+        actor = new Texture("actor.png");
+
+
         batch = new SpriteBatch();
         image = new Texture("Player.png");
         batch = new SpriteBatch();
@@ -29,6 +36,8 @@ public class Main extends Game {
 
         width = Gdx.graphics.getWidth();
         height = Gdx.graphics.getHeight();
+
+
 
     }
 
