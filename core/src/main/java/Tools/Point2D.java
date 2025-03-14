@@ -34,4 +34,14 @@ public class Point2D {
     public void setY (float y){
         this.y = y;
     }
+
+    public void setPoint (Point2D point){
+        x = point.getX();
+        y = point.getY();
+    }
+
+    public void setPoint (float x, float y) {
+        this.x = x;
+        this.y = y;
+    }
 }

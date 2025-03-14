@@ -2,7 +2,7 @@ package Tools;
 
 public class Circle {
     float R;
-    Point2D kordinat;
+    public Point2D kordinat;
 
     public Circle (float R, Point2D Kordinat){
         this.R = R;
