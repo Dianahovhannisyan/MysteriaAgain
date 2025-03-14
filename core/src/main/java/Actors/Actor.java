@@ -11,8 +11,8 @@ public abstract class Actor extends GraphicsObj {
     public Point2D position;
     public float Speed;
     public float R;
-    public  Circle granica;
-
+    public  Circle granic;
+    public Point2D direction;
 
 
     public Actor(Texture img, Point2D position, Circle granica, float Speed, float R) {
@@ -21,6 +21,7 @@ public abstract class Actor extends GraphicsObj {
         this.Speed = Speed;
         this.R = R;
         granica = new Circle(R, position);
+        direction = new Point2D(0,0);
 
     }
 }

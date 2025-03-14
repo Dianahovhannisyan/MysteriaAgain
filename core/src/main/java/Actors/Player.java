@@ -31,6 +31,7 @@ public class Player extends Actor {
         if (position.getY()+R > Main.height)position.setY(Main.height-R);
         if (position.getY()-R < 0 )position.setY(R);
 
+         position.add (direction.getX(),direction.getY());
 
 
     }
