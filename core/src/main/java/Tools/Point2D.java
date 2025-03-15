@@ -15,8 +15,8 @@ public class Point2D {
     }
 
     public void add (float x, float y){
-        this.x = x;
-        this.y = y;
+        this.x += x;
+        this.y += y;
     }
 
     public float getX () {
@@ -44,4 +44,10 @@ public class Point2D {
         this.x = x;
         this.y = y;
     }
+
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
+
 }

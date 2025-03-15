@@ -14,6 +14,8 @@ import io.github.some_example_name.Main;
 
 public class GameScreen implements Screen {
 
+
+
     Joystick joy;
     Player player;
 
@@ -90,17 +92,18 @@ public class GameScreen implements Screen {
 
         Gdx.gl.glClearColor(1,0,0,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        GameUpdate();
 
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         main.batch.begin();
-        main.batch.draw(main.image, 100, 100 );
-        main.batch.end();
-
-
-        GameUpdate();
-        Main.batch.begin();
+        main.batch.draw(main.image, 200, 200);
         GameRender(Main.batch);
         main.batch.end();
+
+
+
+
+
 
     }
 
@@ -149,7 +152,10 @@ public class GameScreen implements Screen {
             new Point2D(Main.width - ((Main.height / 3) / 2 + (Main.height / 3) / 4),
                 (Main.height / 3) / 2 + (Main.height / 3) / 4),
             Main.height / 3);
-        player = new Player(Main.actor, new Point2D(Main.width/2, Main.height/2), 10, Main.height/20,1 );
+        //player = new Player(Main.actor, new Point2D(Main.width/2, Main.height/2), 10, Main.height/20,1 );
+
+        player = new MainCharacter(Main.actor, new Point2D(Main.width / 2, Main.height / 2), 10, Main.height / 20, 1);
+
 
 
     }

@@ -33,36 +33,71 @@ public class Joystick {
 
     }
 
-    public void update (float x, float y, boolean isDownTouch, int pointer){
-           Point2D touch = new Point2D(x,y);
-           if(CircleGranica.isContains(touch) && isDownTouch && this.pointer == -1){
-               this.pointer=pointer;
-           }
+//    public void update (float x, float y, boolean isDownTouch, int pointer){
+//           Point2D touch = new Point2D(x,y);
+//           if(CircleGranica.isContains(touch) && isDownTouch && this.pointer == -1){
+//               this.pointer=pointer;
+//           }
+//
+//           if (CircleGranica.Overlaps(StickGranica) && isDownTouch && pointer == this.pointer){
+//               atControl(new Point2D(x,y));
+//           }
+//
+//           if ((!isDownTouch && pointer == this.pointer) || (isDownTouch && pointer==this.pointer && !CircleGranica.isContains(touch))){
+//               returnStick();
+//           }
+//    }
 
-           if (CircleGranica.Overlaps(StickGranica) && isDownTouch && pointer == this.pointer){
-               atControl(new Point2D(x,y));
-           }
+    public void update(float x, float y, boolean isDownTouch, int pointer) {
+        Point2D touch = new Point2D(x, y);
 
-           if ((!isDownTouch && pointer == this.pointer) || (isDownTouch && pointer==this.pointer && !CircleGranica.isContains(touch))){
-               returnStick();
-           }
+        if (CircleGranica.isContains(touch) && isDownTouch && this.pointer == -1) {
+            this.pointer = pointer;
+        }
+
+        if (isDownTouch && pointer == this.pointer) {
+            if (CircleGranica.isContains(touch)) {
+                atControl(touch);
+            } else {
+                returnStick();
+            }
+        }
+
+        if (!isDownTouch && pointer == this.pointer) {
+            returnStick();
+        }
     }
 
 
 
-    public void atControl (Point2D point){
-       StickGranica.kordinat.setPoint(point);
-       float dx = CircleGranica.kordinat.getX() - StickGranica.kordinat.getX();
-       float dy = CircleGranica.kordinat.getY() - StickGranica.kordinat.getY();
-       float distance = (float) Math.sqrt(dx*dx + dy*dy);
 
-       direction.setPoint(-(dx/distance), -(dy/distance));
+//    public void atControl (Point2D point){
+//       StickGranica.kordinat.setPoint(point);
+//       float dx = CircleGranica.kordinat.getX() - StickGranica.kordinat.getX();
+//       float dy = CircleGranica.kordinat.getY() - StickGranica.kordinat.getY();
+//       float distance = (float) Math.sqrt(dx*dx + dy*dy);
+//
+//       direction.setPoint(-(dx/distance), -(dy/distance));
+//
+//
+//    }
 
+    public void atControl(Point2D point) {
+        StickGranica.kordinat.setPoint(point);
+        float dx = StickGranica.kordinat.getX() - CircleGranica.kordinat.getX();
+        float dy = StickGranica.kordinat.getY() - CircleGranica.kordinat.getY();
+        float distance = (float) Math.sqrt(dx * dx + dy * dy);
 
+        if (distance != 0) {
+            direction.setPoint(dx / distance, dy / distance);
+        } else {
+            direction.setPoint(0, 0);
+        }
     }
+
 
     public void returnStick(){
-        StickGranica.kordinat.setPoint(StickGranica.kordinat);
+        StickGranica.kordinat.setPoint(CircleGranica.kordinat);
         direction.setPoint(0,0);
         pointer = -1;
 

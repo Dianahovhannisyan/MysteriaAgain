@@ -23,7 +23,7 @@ public class Main extends Game {
     @Override
     public void create() {
 
-        circle = new Texture("Circle.jpg");
+        circle = new Texture("Circle.png");
         actor = new Texture("actor.png");
 
 

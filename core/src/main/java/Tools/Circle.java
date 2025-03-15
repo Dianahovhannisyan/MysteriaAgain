@@ -18,9 +18,9 @@ public class Circle {
     }
 
      public boolean Overlaps (Circle c){
-        float dx = kordinat.getY()-c.kordinat.getY();
-        float dy = kordinat.getX() - c.kordinat.getX();
-        float distance = dx*dx+dy*dy;
+         float dx = kordinat.getX() - c.kordinat.getX();
+         float dy = kordinat.getY() - c.kordinat.getY();
+         float distance = dx*dx+dy*dy;
         float sumR = c.R+R;
         return distance < sumR*sumR;
 
