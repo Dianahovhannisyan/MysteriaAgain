@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public abstract class GraphicsObj {
     public GraphicsObj (Texture img){
-    this.img = img;
+        this.img = img;
     }
 
     public Texture img;

@@ -14,75 +14,74 @@ import io.github.some_example_name.Main;
 
 public class GameScreen implements Screen {
 
-
-
     Joystick joy;
     Player player;
 
     // saxi mej grel
     Main main;
     public GameScreen (Main main){
-      this.main = main;
+        this.main = main;
 
 
     }
 
     @Override
     public void show() {
-     Gdx.input.setInputProcessor(new InputProcessor() {
-         @Override
-         public boolean keyDown(int keycode) {
-             return false;
-         }
 
-         @Override
-         public boolean keyUp(int keycode) {
-             return false;
-         }
+        Gdx.input.setInputProcessor(new InputProcessor() {
+            @Override
+            public boolean keyDown(int keycode) {
+                return false;
+            }
 
-         @Override
-         public boolean keyTyped(char character) {
-             return false;
-         }
+            @Override
+            public boolean keyUp(int keycode) {
+                return false;
+            }
 
-         @Override
-         public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-             screenY = Main.height - screenY;
-             multitouch((int)screenX, (int)screenY, true,pointer);
-             return false;
-         }
+            @Override
+            public boolean keyTyped(char character) {
+                return false;
+            }
 
-         @Override
-         public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-             multitouch((int)screenX, (int)screenY, false,pointer);
-             screenY = Main.height - screenY;
-             return false;
-         }
+            @Override
+            public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+                screenY = Main.height - screenY;
+                multitouch((int)screenX, (int)screenY, true,pointer);
+                return false;
+            }
 
-         @Override
-         public boolean touchCancelled(int screenX, int screenY, int pointer, int button) {
-             return false;
-         }
+            @Override
+            public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+                multitouch((int)screenX, (int)screenY, false,pointer);
+                screenY = Main.height - screenY;
+                return false;
+            }
 
-         @Override
-         public boolean touchDragged(int screenX, int screenY, int pointer) {
-             multitouch((int)screenX, (int)screenY, true,pointer);
-             screenY = Main.height - screenY;
-             return false;
-         }
+            @Override
+            public boolean touchCancelled(int screenX, int screenY, int pointer, int button) {
+                return false;
+            }
 
-         @Override
-         public boolean mouseMoved(int screenX, int screenY) {
-             return false;
-         }
+            @Override
+            public boolean touchDragged(int screenX, int screenY, int pointer) {
+                multitouch((int)screenX, (int)screenY, true,pointer);
+                screenY = Main.height - screenY;
+                return false;
+            }
 
-         @Override
-         public boolean scrolled(float amountX, float amountY) {
-             return false;
-         }
-     });
+            @Override
+            public boolean mouseMoved(int screenX, int screenY) {
+                return false;
+            }
 
-      loadActors();
+            @Override
+            public boolean scrolled(float amountX, float amountY) {
+                return false;
+            }
+        });
+
+        loadActors();
 
 
     }
@@ -142,8 +141,8 @@ public class GameScreen implements Screen {
     }
 
     public void GameRender(SpriteBatch batch ){
-       player.draw(batch);
-       joy.draw(batch);
+        player.draw(batch);
+        joy.draw(batch);
 
     }
 
@@ -152,12 +151,7 @@ public class GameScreen implements Screen {
             new Point2D(Main.width - ((Main.height / 3) / 2 + (Main.height / 3) / 4),
                 (Main.height / 3) / 2 + (Main.height / 3) / 4),
             Main.height / 3);
-        //player = new Player(Main.actor, new Point2D(Main.width/2, Main.height/2), 10, Main.height/20,1 );
-
-        player = new MainCharacter(Main.actor, new Point2D(Main.width / 2, Main.height / 2), 10, Main.height / 20, 1);
-
-
-
+        player = new Player(Main.actor, new Point2D(Main.width/2, Main.height/2), 10.0f, Main.height/20);
     }
 
     public void multitouch (float x, float y, boolean isDownTouch, int pointer){

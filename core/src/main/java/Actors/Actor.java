@@ -22,11 +22,9 @@ public abstract class Actor extends GraphicsObj {
         this.R = R;
         granica = new Circle(R, position);
         direction = new Point2D(0,0);
-
     }
 
     public void setDirection(Point2D dir){
-        direction=dir;
+        direction = dir;
     }
-
 }
