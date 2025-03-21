@@ -11,9 +11,9 @@ public class Circle {
     }
 
     public boolean isContains (Point2D point){
-        float dx =  kordinat.getX() - point.getX();
-        float dy = kordinat.getY()-point.getY();
-        return dx * dx + dy * dy <= R * R;
+        float dx = kordinat.getX() - point.getX();
+        float dy = kordinat.getY() - point.getY();
+        return dx * dx + dy * dy <= R;
     }
 
     public boolean Overlaps (Circle c){
